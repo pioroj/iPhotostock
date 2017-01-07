@@ -3,6 +3,14 @@ package pl.com.bottega.iphotostock.sales.money;
 
 public class RationalMoney implements Money {
 
+    private final Rational value;
+    private final Currency currency;
+
+    public RationalMoney(Rational value, Currency currency) {
+        this.value = value;
+        this.currency = currency;
+    }
+
     public Money opposite() {
         return new RationalMoney(value.negative(), currency);
     }
@@ -26,7 +34,6 @@ public class RationalMoney implements Money {
             throw new IllegalArgumentException("RationalMoney cannot be negative");
         return new RationalMoney(value.multiply(factor), currency);
     }
-
     public boolean gte(Money other) {
         return compareTo(other) >= 0;
     }
@@ -36,6 +43,7 @@ public class RationalMoney implements Money {
     public boolean lte(Money other) {
         return compareTo(other) <= 0;
     }
+
     public boolean lt(Money other) {
          return compareTo(other) < 0;
     }
@@ -47,25 +55,18 @@ public class RationalMoney implements Money {
         return value.compareTo(rationalMoney.value);
     }
 
-    private final Rational value;
-    private final Currency currency;
-
-    RationalMoney(Rational value, Currency currency) {
-        this.value = value;
-        this.currency = currency;
-    }
-
-
     @Override
     public String toString() {
         return value.toDouble() + " " + currency.name();
     }
 
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+        if (o instanceof IntegerMoney) {
+            ((IntegerMoney) o).convertToRational();
+        }
         if (!(o instanceof RationalMoney)) return false;
 
         RationalMoney money = (RationalMoney) o;
@@ -73,9 +74,6 @@ public class RationalMoney implements Money {
         if (!value.equals(money.value)) return false;
         return currency == money.currency;
     }
-
-
-
 
     @Override
     public int hashCode() {

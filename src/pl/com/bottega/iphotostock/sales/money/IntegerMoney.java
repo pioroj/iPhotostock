@@ -2,12 +2,12 @@ package pl.com.bottega.iphotostock.sales.money;
 
 
 //TODO equals i hashcode
-class IntegerMoney implements Money {
+public class IntegerMoney implements Money {
 
     private long cents;
     private Currency currency;
 
-    IntegerMoney(long cents, Currency currency) {
+    public IntegerMoney(long cents, Currency currency) {
         this.cents = cents;
         this.currency = currency;
     }
@@ -65,5 +65,32 @@ class IntegerMoney implements Money {
         IntegerMoney integerMoney = other.convertToInteger();
         ensureSameCurrency(integerMoney);
         return integerMoney;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        //if (!(o instanceof IntegerMoney)) return false;
+
+        if (o instanceof RationalMoney) {
+            RationalMoney that = (RationalMoney) o;
+            if (cents != that.convertToInteger().cents) return false;
+            return currency == that.convertToInteger().currency;
+        } else {
+            IntegerMoney that = (IntegerMoney) o;
+            if (cents != that.cents) return false;
+            return currency == that.currency;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (cents ^ (cents >>> 32));
+        result = 31 * result + currency.hashCode();
+        return result;
+    }
+
+    public String toString(){
+        return cents / 100 + " " + currency.name();
     }
 }

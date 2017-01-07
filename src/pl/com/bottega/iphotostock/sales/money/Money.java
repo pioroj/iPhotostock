@@ -35,14 +35,22 @@ public interface Money extends Comparable<Money> {
     IntegerMoney convertToInteger();
 
     public static Money valueOf(Rational value, Currency currency) {
-        return new RationalMoney(value, currency);
+        //return new RationalMoney(value, currency).convertToInteger();
+        return new IntegerMoney(value.getNumerator() * 100L / value.getDenominator(), currency);
     }
 
     public static Money valueOf(long value, Currency currency) {
-        return new RationalMoney(Rational.valueOf(value), currency);
+        //return new RationalMoney(Rational.valueOf(value), currency).convertToInteger();
+        return new IntegerMoney(value * 100L, currency);
     }
 
     public static Money valueOf(long value) {
-        return new RationalMoney(Rational.valueOf(value), DEFAULT_CURRENCY);
+        //return new RationalMoney(Rational.valueOf(value), DEFAULT_CURRENCY).convertToInteger();
+        return new IntegerMoney(value * 100, DEFAULT_CURRENCY);
     }
+
+    public static Money valueOf(float value) {
+        return new IntegerMoney((long) (value * 100.0), DEFAULT_CURRENCY);
+    }
+
 }

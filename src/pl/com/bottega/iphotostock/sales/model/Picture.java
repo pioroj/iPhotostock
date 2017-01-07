@@ -19,6 +19,9 @@ public class Picture extends AbstractProduct {
         this(number, name, tags, catalogPrice, true);
     }
 
+    public boolean hasTag(String tag) {
+        return tags.contains(tag);
+    }
 
     /*@Override
     public boolean equals(Object other) {
