@@ -1,7 +1,7 @@
 package pl.com.bottega.iphotostock.sales.model;
 
 
-import pl.com.bottega.iphotostock.sales.money.Money;
+import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -13,6 +13,10 @@ public class Client {
     private ClientStatus status;
     protected Money balance;
     private Collection<Transaction> transactions;
+    private boolean active = true;
+    private String number;
+    private static int clientNumber;
+
 
     public Client(String name, Address address, ClientStatus status, Money initialBalance) {
         this.name = name;
@@ -20,8 +24,14 @@ public class Client {
         this.status = status;
         this.balance = initialBalance;
         this.transactions = new LinkedList<>();
+        this.number = nextNumber();
         if (!initialBalance.equals(Money.ZERO))
             this.transactions.add(new Transaction(initialBalance, "Opening account"));
+    }
+
+    private static String nextNumber() {
+        clientNumber += 100;
+        return String.valueOf(clientNumber);
     }
 
     public Client(String name, Address address, Money balance) {
@@ -61,5 +71,17 @@ public class Client {
 
     public String getName() {
         return name;
+    }
+
+    public void deactivate() {
+        active = false;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public String getNumber() {
+        return number;
     }
 }

@@ -1,11 +1,11 @@
 package pl.com.bottega.iphotostock.sales.presentation;
 
 
-import pl.com.bottega.iphotostock.sales.money.Rational;
-import pl.com.bottega.iphotostock.sales.money.RationalMoney;
-import pl.com.bottega.iphotostock.sales.money.IntegerMoney;
+import pl.com.bottega.iphotostock.sales.model.money.Rational;
+import pl.com.bottega.iphotostock.sales.model.money.RationalMoney;
+import pl.com.bottega.iphotostock.sales.model.money.IntegerMoney;
 
-import static pl.com.bottega.iphotostock.sales.money.Money.Currency.CREDIT;
+import static pl.com.bottega.iphotostock.sales.model.money.Money.Currency.CREDIT;
 
 public class MoneyEqualsTest {
 

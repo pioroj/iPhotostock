@@ -1,4 +1,4 @@
-package pl.com.bottega.iphotostock.sales.money;
+package pl.com.bottega.iphotostock.sales.model.money;
 
 
 public interface Money extends Comparable<Money> {

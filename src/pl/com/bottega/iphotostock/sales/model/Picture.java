@@ -1,7 +1,7 @@
 package pl.com.bottega.iphotostock.sales.model;
 
 
-import pl.com.bottega.iphotostock.sales.money.Money;
+import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.Collection;
 import java.util.HashSet;

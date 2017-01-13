@@ -5,10 +5,10 @@ import pl.com.bottega.iphotostock.sales.model.Address;
 import pl.com.bottega.iphotostock.sales.model.Client;
 import pl.com.bottega.iphotostock.sales.model.LightBox;
 import pl.com.bottega.iphotostock.sales.model.Product;
-import pl.com.bottega.iphotostock.sales.model.devices.InMemoryLightBoxRepository;
-import pl.com.bottega.iphotostock.sales.model.devices.InMemoryProductRepository;
-import pl.com.bottega.iphotostock.sales.model.devices.ProductRepository;
-import pl.com.bottega.iphotostock.sales.money.Money;
+import pl.com.bottega.iphotostock.sales.infrastructure.InMemoryLightBoxRepository;
+import pl.com.bottega.iphotostock.sales.infrastructure.InMemoryProductRepository;
+import pl.com.bottega.iphotostock.sales.model.ProductRepository;
+import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.Collection;
 

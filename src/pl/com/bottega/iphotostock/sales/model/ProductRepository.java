@@ -1,9 +1,7 @@
-package pl.com.bottega.iphotostock.sales.model.devices;
+package pl.com.bottega.iphotostock.sales.model;
 
 
-import pl.com.bottega.iphotostock.sales.model.Client;
-import pl.com.bottega.iphotostock.sales.model.Product;
-import pl.com.bottega.iphotostock.sales.money.Money;
+import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.List;
 

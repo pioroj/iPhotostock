@@ -1,18 +1,18 @@
 package pl.com.bottega.iphotostock.sales.model;
 
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Reservation {
 
     private Client client;
     private Collection<Product> items;
+    private String number;
 
     public Reservation(Client client) {
         this.client = client;
         this.items = new LinkedList<>();
+        this.number = UUID.randomUUID().toString();
     }
 
     public void add(Product product) {
@@ -20,16 +20,21 @@ public class Reservation {
             throw new IllegalArgumentException(String.format("Product %s is already in your this reservation.",product.getNumber()));
         product.ensureAvailable();
         items.add(product);
+        product.reservedPer(client);
     }
 
     public void remove(Product product) {
         if (!items.contains(product))
             throw new IllegalArgumentException(String.format("Product %s is not added to this reservation.", product.getNumber()));
         items.remove(product);
+        product.unreservedPer(client);
     }
 
     public Offer generateOffer() {
-        return new Offer(getActiveItems(), client);
+        Collection<Product> products = getActiveItems();
+        if (products.isEmpty())
+            throw new IllegalStateException("No active items in the reservation.");
+        return new Offer(products, client);
     }
 
     private Collection<Product> getActiveItems() {
@@ -43,5 +48,13 @@ public class Reservation {
 
     public int getItemsCount() {
         return items.size();
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public boolean isOwnedBy(String clientNumber) {
+        return client.getNumber().equals(clientNumber);
     }
 }

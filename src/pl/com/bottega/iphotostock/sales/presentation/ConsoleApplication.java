@@ -2,9 +2,9 @@ package pl.com.bottega.iphotostock.sales.presentation;
 
 
 import pl.com.bottega.iphotostock.sales.model.*;
-import pl.com.bottega.iphotostock.sales.model.devices.InMemoryProductRepository;
-import pl.com.bottega.iphotostock.sales.model.devices.ProductRepository;
-import pl.com.bottega.iphotostock.sales.money.Money;
+import pl.com.bottega.iphotostock.sales.infrastructure.InMemoryProductRepository;
+import pl.com.bottega.iphotostock.sales.model.ProductRepository;
+import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 public class ConsoleApplication {
 

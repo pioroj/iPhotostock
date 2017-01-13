@@ -1,11 +1,12 @@
-package pl.com.bottega.iphotostock.sales.model.devices;
+package pl.com.bottega.iphotostock.sales.infrastructure;
 
 
 import pl.com.bottega.iphotostock.sales.model.Client;
 import pl.com.bottega.iphotostock.sales.model.Clip;
 import pl.com.bottega.iphotostock.sales.model.Picture;
 import pl.com.bottega.iphotostock.sales.model.Product;
-import pl.com.bottega.iphotostock.sales.money.Money;
+import pl.com.bottega.iphotostock.sales.model.ProductRepository;
+import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.*;
 
@@ -19,8 +20,8 @@ public class InMemoryProductRepository implements ProductRepository {
         Product product1 = new Picture("1", "BMW", tags, Money.valueOf(3));
         Product product2 = new Picture("2", "Mercedes", tags, Money.valueOf(2));
         Product product3 = new Picture("3", "Porsche", tags, Money.valueOf(4));
-        Product clip1 = new Clip("Wsciekle piesci", Money.valueOf(10), "4", 2l * 1000 * 60 * 2);
-        Product clip2 = new Clip("Sum tzw. olimpijczyk", Money.valueOf(11), "5", 4l * 1000 * 60 * 2);
+        Product clip1 = new Clip("Wsciekle piesci", Money.valueOf(10), "4", 2L * 1000 * 60 * 2);
+        Product clip2 = new Clip("Sum tzw. olimpijczyk", Money.valueOf(11), "5", 4L * 1000 * 60 * 2);
         REPOSITORY.put("1", product1);
         REPOSITORY.put("2", product2);
         REPOSITORY.put("3", product3);

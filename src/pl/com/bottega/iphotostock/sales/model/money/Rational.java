@@ -1,4 +1,4 @@
-package pl.com.bottega.iphotostock.sales.money;
+package pl.com.bottega.iphotostock.sales.model.money;
 
 
 public final class Rational implements Comparable<Rational> {
