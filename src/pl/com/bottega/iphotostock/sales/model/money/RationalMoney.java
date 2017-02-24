@@ -62,17 +62,15 @@ public class RationalMoney implements Money {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o instanceof IntegerMoney) {
-            ((IntegerMoney) o).convertToRational();
-        }
-        if (!(o instanceof RationalMoney)) return false;
-
-        RationalMoney money = (RationalMoney) o;
-
-        if (!value.equals(money.value)) return false;
-        return currency == money.currency;
+    public boolean equals(Object other) {
+        if (other == null || !(other instanceof Money))
+            return false;
+        RationalMoney rationalMoney;
+        if (other instanceof IntegerMoney)
+            rationalMoney = ((IntegerMoney) other).convertToRational();
+        else
+            rationalMoney = (RationalMoney) other;
+        return rationalMoney.value.equals(value) && rationalMoney.currency == currency;
     }
 
     @Override
@@ -89,7 +87,7 @@ public class RationalMoney implements Money {
 
     @Override
     public IntegerMoney convertToInteger() {
-        long cents = value.getNumerator() * 100L / value.getDenominator();
+        long cents = value.getNumerator() * 100 / value.getDenominator();
         return new IntegerMoney(cents, currency);
     }
 }

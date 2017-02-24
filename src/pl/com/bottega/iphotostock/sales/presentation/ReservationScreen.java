@@ -2,7 +2,7 @@ package pl.com.bottega.iphotostock.sales.presentation;
 
 
 import pl.com.bottega.iphotostock.sales.application.PurchaseProcess;
-import pl.com.bottega.iphotostock.sales.model.ProductNotAvailableException;
+import pl.com.bottega.iphotostock.sales.model.product.ProductNotAvailableException;
 
 import java.util.Scanner;
 

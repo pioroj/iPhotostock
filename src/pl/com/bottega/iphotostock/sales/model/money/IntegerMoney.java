@@ -1,7 +1,6 @@
 package pl.com.bottega.iphotostock.sales.model.money;
 
 
-//TODO equals i hashcode
 public class IntegerMoney implements Money {
 
     private long cents;
@@ -26,7 +25,7 @@ public class IntegerMoney implements Money {
 
     @Override
     public Money multiply(long factor) {
-        return new IntegerMoney(cents * factor, currency);
+        return new IntegerMoney(factor * cents, currency);
     }
 
     @Override
@@ -48,7 +47,7 @@ public class IntegerMoney implements Money {
     @Override
     public int compareTo(Money o) {
         IntegerMoney integerMoney = safeConvert(o);
-        if(cents == integerMoney.cents)
+        if (cents == integerMoney.cents)
             return 0;
         else if (cents < integerMoney.cents)
             return -1;
@@ -57,8 +56,8 @@ public class IntegerMoney implements Money {
     }
 
     private void ensureSameCurrency(IntegerMoney other) {
-        if(currency != other.currency)
-            throw new IllegalArgumentException("Currency mismatch.");
+        if (currency != other.currency)
+            throw new IllegalArgumentException("Currency missmatch");
     }
 
     private IntegerMoney safeConvert(Money other) {
@@ -67,30 +66,23 @@ public class IntegerMoney implements Money {
         return integerMoney;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        //if (!(o instanceof IntegerMoney)) return false;
-
-        if (o instanceof RationalMoney) {
-            RationalMoney that = (RationalMoney) o;
-            if (cents != that.convertToInteger().cents) return false;
-            return currency == that.convertToInteger().currency;
-        } else {
-            IntegerMoney that = (IntegerMoney) o;
-            if (cents != that.cents) return false;
-            return currency == that.currency;
-        }
+    public boolean equals(Object other) {
+        if (other == null || !(other instanceof Money))
+            return false;
+        IntegerMoney integerMoney;
+        if (other instanceof RationalMoney)
+            integerMoney = ((RationalMoney) other).convertToInteger();
+        else
+            integerMoney = (IntegerMoney) other;
+        return integerMoney.cents == cents && integerMoney.currency == currency;
     }
 
     @Override
-    public int hashCode() {
-        int result = (int) (cents ^ (cents >>> 32));
-        result = 31 * result + currency.hashCode();
-        return result;
+    public String toString() {
+        return String.format("%d.%02d %s", cents / 100, cents % 100, currency.name());
     }
 
-    public String toString(){
-        return cents / 100 + " " + currency.name();
+    public long toCents() {
+        return cents;
     }
 }

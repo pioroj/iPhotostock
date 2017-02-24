@@ -1,12 +1,12 @@
 package pl.com.bottega.iphotostock.sales.presentation;
 
 
-import pl.com.bottega.iphotostock.sales.model.Address;
-import pl.com.bottega.iphotostock.sales.model.Client;
-import pl.com.bottega.iphotostock.sales.model.LightBox;
-import pl.com.bottega.iphotostock.sales.model.Product;
-import pl.com.bottega.iphotostock.sales.infrastructure.InMemoryProductRepository;
-import pl.com.bottega.iphotostock.sales.model.ProductRepository;
+import pl.com.bottega.iphotostock.sales.model.client.Address;
+import pl.com.bottega.iphotostock.sales.model.client.Client;
+import pl.com.bottega.iphotostock.sales.model.lightbox.LightBox;
+import pl.com.bottega.iphotostock.sales.model.product.Product;
+import pl.com.bottega.iphotostock.sales.infrastructure.memory.InMemoryProductRepository;
+import pl.com.bottega.iphotostock.sales.model.product.ProductRepository;
 import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 public class LightBoxTest {
@@ -23,10 +23,15 @@ public class LightBoxTest {
         Client danny = new Client("Danny", new Address(), Money.valueOf(100));
 
         LightBox lightBox1 = new LightBox(client, "Samochody");
+        LightBox lightBox1a = new LightBox(client, "Samochody");
         LightBox lightBox2 = new LightBox(client, "Wyścigowe samochody");
         LightBox lightBox3 = new LightBox(danny, "BMW");
 
         lightBox1.add(product1);
+        lightBox1a.add(product2);
+        printLightBoxes(lightBox1, lightBox1a);
+
+        /*lightBox1.add(product1);
         lightBox1.add(product2);
         lightBox1.add(product3);
 
@@ -40,7 +45,7 @@ public class LightBoxTest {
 
         LightBox l = LightBox.joined(client, "Joined lightbox", lightBox1, lightBox2, lightBox3);
         System.out.println("Joined:");
-        printLightBox(l);
+        printLightBox(l);*/
     }
 
     private static void printLightBoxes(LightBox ... lightBoxes) {

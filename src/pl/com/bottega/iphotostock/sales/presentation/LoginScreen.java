@@ -2,7 +2,7 @@ package pl.com.bottega.iphotostock.sales.presentation;
 
 
 import pl.com.bottega.iphotostock.sales.application.AuthenticationProcess;
-import pl.com.bottega.iphotostock.sales.model.Client;
+import pl.com.bottega.iphotostock.sales.model.client.Client;
 
 import java.util.Scanner;
 

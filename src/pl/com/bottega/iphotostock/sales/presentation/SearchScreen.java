@@ -2,8 +2,8 @@ package pl.com.bottega.iphotostock.sales.presentation;
 
 
 import pl.com.bottega.iphotostock.sales.application.ProductCatalog;
-import pl.com.bottega.iphotostock.sales.model.Client;
-import pl.com.bottega.iphotostock.sales.model.Product;
+import pl.com.bottega.iphotostock.sales.model.client.Client;
+import pl.com.bottega.iphotostock.sales.model.product.Product;
 import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.InputMismatchException;
@@ -38,7 +38,7 @@ public class SearchScreen {
     }
 
     private void printProducts(Client client, List<Product> products) {
-        System.out.println("Matching products: ");
+        System.out.println("Znalezione produkty: ");
         for (Product product : products) {
             System.out.println(
                     String.format("%s | %s %s",

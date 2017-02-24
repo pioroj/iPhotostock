@@ -1,13 +1,13 @@
 package pl.com.bottega.iphotostock.sales.presentation;
 
 
-import pl.com.bottega.iphotostock.sales.model.Address;
-import pl.com.bottega.iphotostock.sales.model.Client;
-import pl.com.bottega.iphotostock.sales.model.LightBox;
-import pl.com.bottega.iphotostock.sales.model.Product;
-import pl.com.bottega.iphotostock.sales.infrastructure.InMemoryLightBoxRepository;
-import pl.com.bottega.iphotostock.sales.infrastructure.InMemoryProductRepository;
-import pl.com.bottega.iphotostock.sales.model.ProductRepository;
+import pl.com.bottega.iphotostock.sales.model.client.Address;
+import pl.com.bottega.iphotostock.sales.model.client.Client;
+import pl.com.bottega.iphotostock.sales.model.lightbox.LightBox;
+import pl.com.bottega.iphotostock.sales.model.product.Product;
+import pl.com.bottega.iphotostock.sales.infrastructure.memory.InMemoryLightBoxRepository;
+import pl.com.bottega.iphotostock.sales.infrastructure.memory.InMemoryProductRepository;
+import pl.com.bottega.iphotostock.sales.model.product.ProductRepository;
 import pl.com.bottega.iphotostock.sales.model.money.Money;
 
 import java.util.Collection;

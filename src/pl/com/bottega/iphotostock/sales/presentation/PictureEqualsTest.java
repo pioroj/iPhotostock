@@ -1,10 +1,10 @@
 package pl.com.bottega.iphotostock.sales.presentation;
 
 
-import pl.com.bottega.iphotostock.sales.model.Clip;
+import pl.com.bottega.iphotostock.sales.model.product.Clip;
 import pl.com.bottega.iphotostock.sales.model.money.Money;
-import pl.com.bottega.iphotostock.sales.model.Picture;
-import pl.com.bottega.iphotostock.sales.model.Product;
+import pl.com.bottega.iphotostock.sales.model.product.Picture;
+import pl.com.bottega.iphotostock.sales.model.product.Product;
 
 import java.util.HashSet;
 

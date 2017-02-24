@@ -1,8 +1,8 @@
 package pl.com.bottega.iphotostock.sales.application;
 
 
-import pl.com.bottega.iphotostock.sales.model.Client;
-import pl.com.bottega.iphotostock.sales.model.ClientRepository;
+import pl.com.bottega.iphotostock.sales.model.client.Client;
+import pl.com.bottega.iphotostock.sales.model.client.ClientRepository;
 
 public class AuthenticationProcess {
 
